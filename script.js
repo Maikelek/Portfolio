@@ -54,3 +54,35 @@ window.addEventListener('scroll', () => {
         section.style.backgroundPositionY = offset * 0.7 + 'px';
     });
 });
+
+
+const text = "Marián Zelinka";
+let index = 0;
+let deleting = false;
+
+function typeEffect() {
+    const typingEffectElement = document.querySelector('.typing-effect');
+
+    if (deleting) {
+        typingEffectElement.textContent = text.slice(0, index--);
+        if (index < 0) {
+            deleting = false;
+            index = 0;
+            setTimeout(typeEffect, 500);
+        } else {
+            setTimeout(typeEffect, 100);
+        }
+    } else {
+        typingEffectElement.textContent = text.slice(0, index++); 
+        if (index > text.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1000);
+        } else {
+            setTimeout(typeEffect, 150);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    typeEffect();
+});
