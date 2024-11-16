@@ -1,4 +1,3 @@
-/* General Styles */
 * {
     margin: 0;
     padding: 0;
@@ -14,12 +13,17 @@ body {
     overflow-x: hidden;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* Navigation Bar */
 nav {
     position: fixed;
     top: 0;
@@ -31,6 +35,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 nav ul {
@@ -55,7 +60,6 @@ nav ul li a:hover {
     color: #fff;
 }
 
-/* Hamburger Menu Styles */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -64,10 +68,14 @@ nav ul li a:hover {
     height: 24px;
 }
 
+.noscroll {
+    overflow: hidden;
+}
+
 .bar {
     width: 30px;
     height: 3px;
-    background-color: #fff; /* Make hamburger white for visibility */
+    background-color: #fff;
     transition: all 0.3s ease;
 }
 
@@ -111,32 +119,6 @@ nav ul li a:hover {
     nav ul li {
         margin: 20px 0;
     }
-}
-
-/* Parallax Header */
-
-.typing-effect {
-    display: inline-block;
-    border-right: 3px solid;
-    padding-right: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-.typing-effect::after {
-    content: '';
-    display: inline-block;
-    width: 0;
-    visibility: hidden;
-}
-
-@keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-}
-
-@keyframes blink {
-    50% { border-color: transparent; }
 }
 
 header {
@@ -202,7 +184,6 @@ header {
     transform: translateY(-5px);
 }
 
-/* Parallax Effect */
 @keyframes slide-in {
     0% {
         transform: translateY(-100px);
@@ -220,8 +201,19 @@ header {
     }
 }
 
-/* About Section */
+h2 {
+    position: relative;
+    font-size: 2.5rem;
+    color: #00bfff;
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 3rem;
+}
+
 .about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 6rem 2rem;
     background-color: #262626;
     color: #e0e0e0;
@@ -229,35 +221,20 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #00bfff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fade-in 1s ease-out forwards;
-}
-
 .about p {
     max-width: 800px;
-    margin: 0 auto;
     font-size: 1.1rem;
     color: #b3b3b3;
+    margin-bottom: 2rem;
 }
 
-/* Skills Section */
 .skills {
     padding: 6rem 2rem;
     background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-}
-
-.skills h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #00bfff;
-    text-transform: uppercase;
-    animation: fade-in 1s ease-out forwards;
 }
 
 .skill-grid {
@@ -291,26 +268,19 @@ header {
     color: #b3b3b3;
 }
 
-/* Experience Section */
 .experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 6rem 2rem;
     background-color: #262626;
     color: #e0e0e0;
     text-align: center;
 }
 
-.experience h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #00bfff;
-    text-transform: uppercase;
-    animation: fade-in 1s ease-out forwards;
-}
-
 .timeline {
     max-width: 800px;
     margin: 0 auto;
-    position: relative;
 }
 
 .timeline-item {
@@ -318,7 +288,6 @@ header {
     background-color: #1a1a1a;
     margin-bottom: 2rem;
     border-radius: 10px;
-    position: relative;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
@@ -337,21 +306,11 @@ header {
     font-size: 0.9rem;
 }
 
-/* Projects Section */
 .projects {
     padding: 6rem 2rem;
     background: #1a1a1a;
     color: #e0e0e0;
     text-align: center;
-}
-
-.projects h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #00bfff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fade-in 1s ease-out forwards;
 }
 
 .project-grid {
@@ -363,7 +322,9 @@ header {
 }
 
 .project-card {
-    background: #262626;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 2rem;
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
@@ -376,18 +337,17 @@ header {
 }
 
 .project-card h3 {
-    margin-bottom: 1rem;
     font-size: 1.5rem;
     color: #00bfff;
 }
 
 .project-card p {
-    margin-bottom: 1.5rem;
     color: #b3b3b3;
+    margin-bottom: 1.5rem;
 }
 
 .project-card .btn {
-    display: inline-block;
+    align-self: center;
     padding: 0.5rem 1.5rem;
     background-color: #00bfff;
     border-radius: 30px;
@@ -401,7 +361,6 @@ header {
     transform: translateY(-3px);
 }
 
-/* Contact Section */
 .contact {
     padding: 6rem 2rem;
     background-color: #262626;
@@ -409,17 +368,8 @@ header {
     text-align: center;
 }
 
-.contact h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    color: #00bfff;
-    text-transform: uppercase;
-    animation: fade-in 1s ease-out forwards;
-}
-
 .contact p {
     font-size: 1.2rem;
-    margin-bottom: 2rem;
     color: #b3b3b3;
 }
 
@@ -438,17 +388,6 @@ header {
     transform: scale(1.2);
 }
 
-.social-icon {
-    width: 50px;
-    height: 50px;
-    filter: brightness(0) invert(1);
-}
-
-.social-icon:hover {
-    filter: brightness(0) invert(0.7);
-}
-
-/* Footer */
 footer {
     background-color: #262626;
     color: #e0e0e0;
@@ -456,10 +395,9 @@ footer {
     text-align: center;
     font-size: 1rem;
     box-shadow: 0 -6px 15px rgba(0, 0, 0, 0.3);
-    margin-top: 50px; 
+    margin-top: 50px;
 }
 
-/* Parallax Section */
 .parallax-section {
     background-attachment: fixed;
     background-size: cover;
@@ -467,7 +405,6 @@ footer {
     height: 400px;
 }
 
-/* Scroll-triggered animations */
 .fade-in {
     opacity: 0;
     transform: translateY(50px);
@@ -485,18 +422,107 @@ footer {
     transform: translateX(0) translateY(0);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+
+@media (max-width: 992px) {
     .header-content h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
 
     .header-content p {
         font-size: 1rem;
     }
 
-    .project-card,
-    .skill-card {
-        margin-bottom: 1rem;
+    .skill-card, .project-card {
+        padding: 1.5rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .skill-grid, .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-content p {
+        font-size: 0.9rem;
+    }
+
+    .skill-grid, .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+    .timeline-item {
+        padding: 1.5rem;
+    }
+
+    .about, .skills, .experience, .projects, .contact {
+        padding: 4rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-content h1 {
+        font-size: 2rem;
+    }
+
+    .header-content p {
+        font-size: 0.8rem;
+    }
+
+    .skill-card, .project-card {
+        padding: 1rem;
+    }
+
+    .about, .skills, .experience, .projects, .contact {
+        padding: 3rem 0.5rem;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .skill-grid, .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-content p {
+        font-size: 0.75rem;
+    }
+
+    .btn {
+        padding: 0.5rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .skill-card h3, .project-card h3, .timeline-item h3 {
+        font-size: 1.25rem;
+    }
+
+    .contact p {
+        font-size: 1rem;
     }
 }
